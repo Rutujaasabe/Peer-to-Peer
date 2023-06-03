@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add your CSS styles here */
+  </style>
+</head>
+
+<body>
+  <!-- Your header code -->
+
+  <main>
+    <!-- Add Course form code -->
+    <!-- ... -->
+
+    <section id="course-list">
+      <h2>Course List</h2>
+      <ul id="course-list-items">
+        <!-- Populated dynamically with course data -->
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    // Function to fetch the course data from the backend server
+    function fetchCourses() {
+      // Make an API call to retrieve the course data from the server
+      fetch('/api/courses')
+        .then(response => response.json())
+        .then(data => {
+          // Call the function to populate the course list with the retrieved data
+          populateCourseList(data);
+        })
+        .catch(error => {
+          console.error('Error fetching course data:', error);
+        });
+    }
+
+    // Function to populate the course list with the retrieved data
+    function populateCourseList(courses) {
+      const courseList = document.getElementById('course-list-items');
+
+      // Clear any existing list items
+      courseList.innerHTML = '';
+
+      // Iterate over the courses and create list items
+      courses.forEach(course => {
+        const listItem = document.createElement('li');
+        listItem.textContent = course.name;
+
+        // Add event listeners to handle update and delete actions
+        listItem.addEventListener('click', () => handleUpdate(course.id));
+        listItem.addEventListener('contextmenu', (event) => handleDelete(event, course.id));
+
+        courseList.appendChild(listItem);
+      });
+    }
+
+    // Function to handle the update action
+    function handleUpdate(courseId) {
+      // Redirect the user to the update page or implement the necessary logic
+      // to update the course with the provided courseId
+    }
+
+    // Function to handle the delete action
+    function handleDelete(event, courseId) {
+      event.preventDefault();
+
+      // Show a confirmation dialog before deleting the course
+      const confirmDelete = confirm('Are you sure you want to delete this course?');
+      if (confirmDelete) {
+        // Make an API call to delete the course from the server
+        fetch(`/api/courses/${courseId}`, { method: 'DELETE' })
+          .then(response => {
+            // Check the response status and handle accordingly
+            if (response.ok) {
+              // Refresh the course list after successful deletion
+              fetchCourses();
+            } else {
+              console.error('Error deleting course:', response.statusText);
+            }
+          })
+          .catch(error => {
+            console.error('Error deleting course:', error);
+          });
+      }
+    }
+
+    // Call the fetchCourses function to populate the initial course list
+    fetchCourses();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Live Lecture</title>
+  <script src="https://media.twiliocdn.com/sdk/js/video/v2/twilio-video.min.js"></script>
+</head>
+
+<body>
+  <button onclick="startLiveLecture()">Start Live Lecture</button>
+  <div id="local-video"></div>
+
+  <script>
+    const Video = Twilio.Video;
+
+    function startLiveLecture() {
+      const token = 'YOUR_TWILIO_ACCESS_TOKEN'; // Replace with your Twilio access token
+      const roomName = 'LectureRoom'; // Replace with your room name or generate dynamically
+
+      Video.connect(token, { room: roomName }).then(room => {
+        console.log(`Connected to Room: ${room.name}`);
+
+        const localParticipant = room.localParticipant;
+        const localVideoElement = document.getElementById('local-video');
+        Video.createLocalVideoTrack().then(track => {
+          localVideoElement.appendChild(track.attach());
+        });
+
+        console.log('Starting live lecture...');
+        // Add your code here to handle the live lecture
+      }).catch(error => {
+        console.error(`Error connecting to Room: ${error.message}`);
+      });
+    }
+  </script>
+</body>
+
+</html>

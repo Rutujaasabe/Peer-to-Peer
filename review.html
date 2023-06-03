@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styles for the notification count circle */
+    .notification-count {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 14px;
+      line-height: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Notification count circle -->
+  <div id="notificationCount" class="notification-count"></div>
+
+  <script>
+    let notificationCount = 0;
+
+    // Function to update the notification count display
+    function updateNotificationCount() {
+      const countContainer = document.getElementById('notificationCount');
+      countContainer.textContent = notificationCount;
+    }
+
+    // Function to submit a message for a viewed course
+    function submitMessage(courseId, message) {
+      // Code for submitting the message to the backend or storing it as needed
+
+      // Increment the notification count
+      notificationCount++;
+
+      // Update the notification count display
+      updateNotificationCount();
+    }
+
+    // Example usage
+    submitMessage('course123', 'I have a question about the last video.');
+
+    // Redirect to the notifications page when the notification count is clicked
+    const countContainer = document.getElementById('notificationCount');
+    countContainer.addEventListener('click', function() {
+      window.location.href = '/notifications'; // Replace with the appropriate URL or routing mechanism
+    });
+  </script>
+</body>
+</html>

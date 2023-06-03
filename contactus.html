@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#" class="logo">P2P Tutor</a>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="studentneed.html">Students Need</a></li>
+        <li class="dropdown">
+          <a href="#">Tutors &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="peer_login.php">Peer</a></li>
+            <li><a href="student_login.php">Student</a></li>
+          </ul>
+        </li>
+        <li><a href="Tutoringreq.html">Schedule</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#" class="search-logo" id="searchInput"></a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="submit"] {
+    background-color: #4504a7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<h1>Contact Us</h1>
+<form method="post" action="process_contact.php">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="mobile">Mobile Number:</label>
+  <input type="text" id="mobile" name="mobile" required><br><br>
+
+  <label for="suggestion">Suggestion:</label>
+  <textarea id="suggestion" name="suggestion" required></textarea><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+</body>
+
+</html>

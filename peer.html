@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Style for the notification count */
+    .notification-count {
+      position: relative;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 5px 8px;
+      font-size: 12px;
+      line-height: 1;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="">
+    <nav>
+      <a href="#" class="logo">P2P Tutor</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Manage Course &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="add_course.html">Add Course</a></li>
+            <li><a href="#">Update Course</a></li>
+            <li><a href="#">Delete Course</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Notifications<span id="notificationCount" class="notification-count"></span></a></li>
+
+        <head>
+          <style>
+            /* Styles for the notification container */
+            .notification-container {
+              position: fixed;
+              top: 40px;
+              right: 10px;
+              width: 300px;
+              background-color: #f8f8f8;
+              border: 1px solid #ddd;
+              padding: 10px;
+              display: none;
+            }
+
+            /* Style for each individual notification */
+            .notification {
+              margin-bottom: 10px;
+              padding: 5px;
+              background-color: #e9e9e9;
+              border: 1px solid #ccc;
+            }
+          </style>
+        </head>
+
+        <body>
+          <!-- Notification container -->
+          <div id="notificationContainer" class="notification-container"></div>
+
+          <script>
+            let notificationCount = 0; // Initially, no notifications
+
+            // Function to update the notification count display
+            function updateNotificationCount() {
+              const countContainer = document.getElementById('notificationCount');
+              countContainer.textContent = notificationCount;
+            }
+
+            // Function to display all notifications
+            function displayAllNotifications() {
+              // Hide the notification container if there are no notifications
+              if (notificationCount === 0) {
+                const container = document.getElementById('notificationContainer');
+                container.style.display = 'none';
+                return;
+              }
+
+              // Show the notification container
+              const container = document.getElementById('notificationContainer');
+              container.style.display = 'block';
+
+              // Clear the notification count
+              notificationCount = 0;
+              updateNotificationCount();
+            }
+
+            // Example usage
+            updateNotificationCount();
+
+            // Attach click event listener to the notification count
+            const countContainer = document.getElementById('notificationCount');
+            countContainer.addEventListener('click', displayAllNotifications);
+
+            // Code to retrieve and display notifications from the backend
+            // Replace this with your own implementation or API calls
+            const notifications = [
+              { courseId: 'course123', message: 'New comment on your course: Introduction to HTML' },
+              { courseId: 'course456', message: 'Reminder: Assignment submission due tomorrow' },
+              { courseId: 'course789', message: 'Important announcement: Class schedule change' }
+            ];
+
+            const container = document.getElementById('notificationContainer');
+            for (const notification of notifications) {
+              const notificationElement = document.createElement('div');
+              notificationElement.classList.add('notification');
+              notificationElement.textContent = notification.message;
+              container.appendChild(notificationElement);
+              notificationCount++; // Increment the notification count
+            }
+
+            // Update the notification count display initially
+            updateNotificationCount();
+          </script>
+        </body>
+        <li><a href="timescheduling.html">Schedule Live</a></li>
+        <li><a href="live.html">Take Live Streaming</a></li>
+        <li><a href="#" class="search-logo" id="searchInput"></a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Profile card styles */
+    .profile-card {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .profile-card h2 {
+      margin: 0;
+    }
+
+    .profile-card p {
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .profile-card ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .profile-card ul li {
+      margin-bottom: 5px;
+    }
+
+    .profile-card {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .profile-card:hover {
+      background-color: #f8f0f8;
+    }
+
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .profile-card h2 {
+      margin: 0;
+      color: #333;
+      font-size: 20px;
+    }
+
+    .profile-card p {
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .profile-card ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .profile-card ul li {
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .profile-card:hover p {
+      color: #f06292;
+    }
+
+    /* Example usage */
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+
+<br>
+<br>
+
+<body>
+  <div class="profile-card">
+    <img src="img/profile.png" alt="Profile Photo">
+    <h2>John Doe</h2>
+    <p>Position: Software Developer</p>
+    <p>Experience: 5 years</p>
+    <ul>
+      <li>Course 1: Introduction to Web Development</li>
+      <li>Course 2: JavaScript Fundamentals</li>
+      <li>Course 3: Advanced CSS Techniques</li>
+    </ul>
+  </div>
+</body>
+
+</html>
+
+</html>

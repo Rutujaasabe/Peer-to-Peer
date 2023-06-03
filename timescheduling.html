@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="">
+    <nav>
+      <a href="#" class="logo">P2P Tutor</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Manage Course &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="add_course.html">Add Course</a></li>
+            <li><a href="#">Update Course</a></li>
+            <li><a href="#">Delete Course</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="timescheduling.html">Schedule Live</a></li>
+        <li><a href="live.html">Take Live Streaming</a></li>
+        <li><a href="#" class="search-logo" id="searchInput"></a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
+<main>
+  <section id="peer-page">
+
+    <center>
+      <ul id="requests-list">
+        <!-- Populate requests dynamically using PHP -->
+      </ul>
+      <h2>Schedule Live Lecture</h2>
+      <form action="schedule_lecture.php" method="post">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <input type="submit" value="Schedule">
+      </form>
+    </center>
+    <!-- Live lecture scheduling form -->
+
+
+    <!-- Live lecture chat -->
+
+  </section>
+</main>
+</body>
+<style>
+  /* Add your custom CSS styles here */
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  nav ul li {
+    margin-right: 20px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover {
+    color: #666;
+  }
+
+  h1,
+  h2 {
+    margin: 20px 0;
+  }
+
+  form {
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="time"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  #live-chat {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+
+  #requests-list li {
+    margin-bottom: 10px;
+  }
+
+  /* Add styles for dropdown menu */
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+  }
+</style>
+
+</html>

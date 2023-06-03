@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Add Course section styles */
+    #add-course {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+
+    #add-course h2 {
+      margin-bottom: 10px;
+    }
+
+    #course-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    #course-form input[type="text"],
+    #course-form textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #course-form input[type="file"] {
+      margin-top: 5px;
+    }
+
+    #course-form input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #course-form input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="">
+    <nav>
+      <a href="#" class="logo">P2P Tutor</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Manage Course &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Add Course</a></li>
+            <li><a href="#">Update Course</a></li>
+            <li><a href="#">Delete Course</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="timescheduling.html">Schedule Live</a></li>
+        <li><a href="#">Take Live Streaming</a></li>
+        <li><a href="#" class="search-logo" id="searchInput"></a></li>
+      </ul>
+    </nav>
+  </header>
+  <center>
+    <main>
+      <section id="add-course">
+        <h2>Add Course</h2>
+        <form id="course-form" action="course_engine.php" method="post">
+
+          <label for="course-name">Course Name:</label>
+          <input type="text" id="course-name" name="course-name" required><br><br>
+
+          <label for="course-description">Course Description:</label>
+          <textarea id="course-description" name="course-description" required></textarea><br><br>
+
+          <label for="course-duration">Duration:</label>
+          <input type="text" id="course-duration" name="course-duration" required><br><br>
+
+          <label for="demo-video">Demo Video:</label>
+          <input type="file" id="demo-video" name="demo-video" accept="video/*" required><br><br>
+
+          <input type="submit" value="Add Course">
+        </form>
+      </section>
+    </main>
+  </center>
+
+  <script>
+    // Access the form and add an event listener for form submission
+    const form = document.getElementById('course-form');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get input values
+      const courseName = document.getElementById('course-name').value;
+      const courseDescription = document.getElementById('course-description').value;
+      const courseDuration = document.getElementById('course-duration').value;
+      const demoVideo = document.getElementById('demo-video').files[0]; // Get the selected file
+
+      // Create a new course object with the input values
+      const course = {
+        name: courseName,
+        description: courseDescription,
+        duration: courseDuration,
+        video: demoVideo
+      };
+
+      // Perform further processing (e.g., store the course data, display on the webpage, etc.)
+      // Here, you can send the course object to the server using AJAX or perform any other required operations
+
+      // Reset the form
+      form.reset();
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Style for the notification count */
+    .notification-count {
+      position: relative;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 5px 8px;
+      font-size: 12px;
+      line-height: 1;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="">
+    <nav>
+      <a href="#" class="logo">P2P Tutor</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Manage Course &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="add_course.html">Add Course</a></li>
+            <li><a href="#">Update Course</a></li>
+            <li><a href="#">Delete Course</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Notifications<span id="notificationCount" class="notification-count"></span></a></li>
+
+        <head>
+          <style>
+            /* Styles for the notification container */
+            .notification-container {
+              position: fixed;
+              top: 40px;
+              right: 10px;
+              width: 300px;
+              background-color: #f8f8f8;
+              border: 1px solid #ddd;
+              padding: 10px;
+              display: none;
+            }
+
+            /* Style for each individual notification */
+            .notification {
+              margin-bottom: 10px;
+              padding: 5px;
+              background-color: #e9e9e9;
+              border: 1px solid #ccc;
+            }
+          </style>
+        </head>
+
+        <body>
+          <!-- Notification container -->
+          <div id="notificationContainer" class="notification-container"></div>
+
+          <script>
+            let notificationCount = 0; // Initially, no notifications
+
+            // Function to update the notification count display
+            function updateNotificationCount() {
+              const countContainer = document.getElementById('notificationCount');
+              countContainer.textContent = notificationCount;
+            }
+
+            // Function to display all notifications
+            function displayAllNotifications() {
+              // Hide the notification container if there are no notifications
+              if (notificationCount === 0) {
+                const container = document.getElementById('notificationContainer');
+                container.style.display = 'none';
+                return;
+              }
+
+              // Show the notification container
+              const container = document.getElementById('notificationContainer');
+              container.style.display = 'block';
+
+              // Clear the notification count
+              notificationCount = 0;
+              updateNotificationCount();
+            }
+
+            // Example usage
+            updateNotificationCount();
+
+            // Attach click event listener to the notification count
+            const countContainer = document.getElementById('notificationCount');
+            countContainer.addEventListener('click', displayAllNotifications);
+
+            // Code to retrieve and display notifications from the backend
+            // Replace this with your own implementation or API calls
+            const notifications = [
+              { courseId: 'course123', message: 'New comment on your course: Introduction to HTML' },
+              { courseId: 'course456', message: 'Reminder: Assignment submission due tomorrow' },
+              { courseId: 'course789', message: 'Important announcement: Class schedule change' }
+            ];
+
+            const container = document.getElementById('notificationContainer');
+            for (const notification of notifications) {
+              const notificationElement = document.createElement('div');
+              notificationElement.classList.add('notification');
+              notificationElement.textContent = notification.message;
+              container.appendChild(notificationElement);
+              notificationCount++; // Increment the notification count
+            }
+
+            // Update the notification count display initially
+            updateNotificationCount();
+          </script>
+        </body>
+        <li><a href="timescheduling.html">Schedule Live</a></li>
+        <li><a href="live.html">Take Live Streaming</a></li>
+        <li><a href="#" class="search-logo" id="searchInput"></a></li>
+      </ul>
+    </nav>
+  </header>
+  <title>Live Streaming</title>
+  <link rel="stylesheet" href="styles1.css">
+  <style>
+    #video {
+      width: 340px;
+      height: 280px;
+    }
+  </style>
+  </head>
+
+  <body>
+    <center>
+      <h1>Live Streaming App</h1>
+
+      <video id="video" autoplay></video>
+    </center>
+    <center>
+      <div>
+
+        <input type="text" id="messageInput" placeholder="Type your message" style="
+  border: solid black;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;">
+
+        <button id="sendBtn" style=" background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;">Send</button>
+      </div>
+    </center>
+    <br>
+    <center>
+      <div class="btn-container">
+        <button id="startBtn" style="margin:2px;">Start the Live Session</button>
+        <button id="stopBtn" style="margin:2px;">Stop Live </button>
+        <button id="micBtn" style="margin:2px;">Toggle Mic</button>
+        <button id="captureBtn" style="margin:2px;">Start Capture</button>
+        <button id="stopBtn" style="margin:2px;">Stop Capture</button>
+      </div>
+    </center>
+    <br>
+    <div id="chatbox"></div>
+
+
+
+    <center><button id="leaveBtn" style=" background-color: red;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      cursor: pointer;">Leave</button></center>
+
+
+    <script>
+      const video = document.getElementById('video');
+      const captureBtn = document.getElementById('captureBtn');
+      const stopBtn = document.getElementById('stopBtn');
+      const toggleAudioBtn = document.getElementById('toggleAudioBtn');
+      const chatBox = document.getElementById('chatBox');
+      const messageInput = document.getElementById('messageInput');
+      const sendBtn = document.getElementById('sendBtn');
+      const leaveBtn = document.getElementById('leaveBtn');
+
+      startBtn.addEventListener('click', startStreaming);
+      stopBtn.addEventListener('click', stopStreaming);
+      micBtn.addEventListener('click', toggleMic);
+      sendBtn.addEventListener('click', sendMessage);
+      leaveBtn.addEventListener('click', leaveMeeting);
+
+
+      // Function to capture and prepare the video stream data
+      function captureVideoStream() {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+          .then(stream => {
+            videoElement.srcObject = stream;
+            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = event => {
+              chunks.push(event.data);
+            };
+
+            mediaRecorder.onstop = () => {
+              const videoBlob = new Blob(chunks, { type: 'video/webm' });
+              const formData = new FormData();
+              formData.append('video', videoBlob);
+
+              // Send video data to the server
+              fetch('video.php', {
+                method: 'POST',
+                body: formData
+              })
+                .then(response => response.json())
+                .then(data => {
+                  console.log(data);
+                })
+                .catch(error => {
+                  console.error(error);
+                });
+            };
+          })
+          .catch(error => {
+            console.error('Error accessing media devices:', error);
+          });
+      }
+
+      // Function to start capturing the video stream
+      function startCapture() {
+        chunks = [];
+        mediaRecorder.start();
+        console.log('Capture started');
+      }
+      function startStreaming() {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+          .then(stream => {
+            video.srcObject = stream;
+            const mediaRecorder = new MediaRecorder(stream);
+            const chunks = [];
+
+            mediaRecorder.ondataavailable = (event) => {
+              chunks.push(event.data);
+            };
+
+            mediaRecorder.onstop = () => {
+              const blob = new Blob(chunks, { type: 'video/webm' });
+              const formData = new FormData();
+              formData.append('video', blob);
+
+              // Send an HTTP POST request to the PHP file
+              fetch('video.php', {
+                method: 'POST',
+                body: formData
+              })
+                .then(response => response.json())
+                .then(data => {
+                  // Handle the response
+                  console.log(data);
+                })
+                .catch(error => {
+                  // Handle any errors
+                  console.error(error);
+                });
+            };
+
+            // Start recording the video stream
+            mediaRecorder.start();
+          })
+          .catch(error => {
+            console.error('Error accessing media devices:', error);
+          });
+      }
+      // Function to stop capturing the video stream
+      function stopStreaming() {
+        const mediaStream = video.srcObject;
+        const mediaTracks = mediaStream.getTracks();
+
+        mediaTracks.forEach(track => track.stop());
+        video.srcObject = null;
+      }
+
+      // Function to toggle audio on/off
+      function toggleMic() {
+        const stream = video.srcObject;
+        const audioTrack = stream.getAudioTracks()[0];
+
+        audioTrack.enabled = !audioTrack.enabled;
+        micBtn.textContent = audioTrack.enabled ? 'Mute Mic' : 'Unmute Mic';
+      }
+
+      // Function to handle sending chat messages
+      function sendMessage() {
+        const messageInput = document.getElementById('messageInput');
+        const message = messageInput.value;
+        messageInput.value = '';
+
+        const chatBox = document.getElementById('chatBox');
+        const messageElement = document.createElement('div');
+        messageElement.textContent = message;
+        chatBox.appendChild(messageElement);
+
+      }
+      function leaveMeeting() {
+        stopStreaming();
+      }
+
+      // Event listeners for buttons
+      captureBtn.addEventListener('click', startCapture);
+      stopBtn.addEventListener('click', stopCapture);
+    </script>
+  </body>
+
+</html>

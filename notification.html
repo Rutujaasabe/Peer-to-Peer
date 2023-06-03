@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="">
+    <nav>
+      <a href="#" class="logo">P2P Tutor</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+       
+        <li class="dropdown">
+          <a href="#">Manage Course &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Add Course</a></li>
+            <li><a href="#">Update Course</a></li>
+            <li><a href="#">Delete Course</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="timescheduling.html">Schedule Live</a></li>
+        <li><a href="#">Take Live Streaming</a></li>
+        <li><a href="#" class="search-logo" id="searchInput"></a></li>
+      </ul>
+    </nav>
+
+  </header>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <style>
+      /* Styles for the notification container */
+      .notification-container {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 300px;
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+      
+      /* Style for each individual notification */
+      .notification {
+        margin-bottom: 10px;
+        padding: 5px;
+        background-color: #e9e9e9;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styles for the notification container */
+    .notification-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 300px;
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    
+    /* Style for each individual notification */
+    .notification {
+      margin-bottom: 10px;
+      padding: 5px;
+      background-color: #e9e9e9;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styles for the notification container */
+    .notification-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 300px;
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: 10px;
+      cursor: pointer;
+    }
+    
+    /* Style for each individual notification */
+    .notification {
+      margin-bottom: 10px;
+      padding: 5px;
+      background-color: #e9e9e9;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Notification container element -->
+  <div id="notificationContainer" class="notification-container"></div>
+
+  <script>
+    let notificationCount = 0;
+    const notifications = [];
+
+    // Function to display a notification
+    function displayNotification(message, courseId) {
+      // Increment the notification count
+      notificationCount++;
+
+      // Create a new notification element
+      const notificationElement = document.createElement('div');
+      notificationElement.classList.add('notification');
+      notificationElement.textContent = message;
+
+      // Add the notification to the container
+      const container = document.getElementById('notificationContainer');
+      container.appendChild(notificationElement);
+
+      // Add the notification to the notifications array
+      notifications.push({
+        message: message,
+        courseId: courseId
+      });
+
+      // Update the notification count display
+      updateNotificationCount();
+    }
+
+    // Function to update the notification count display
+    function updateNotificationCount() {
+      const countContainer = document.getElementById('notificationCount');
+      countContainer.textContent = notificationCount;
+    }
+
+    // Function to view all notifications
+    function viewAllNotifications() {
+      // Redirect the user to the page displaying all notifications
+      window.location.href = '/notifications'; // Replace with the appropriate URL or routing mechanism
+    }
+
+    // Example usage
+    displayNotification('New comment on your course: Introduction to HTML', 'course123');
+
+    // Attach click event listener to the notification container
+    const container = document.getElementById('notificationContainer');
+    container.addEventListener('click', viewAllNotifications);
+  </script>
+
+  <!-- Display the notification count -->
+  <div id="notificationCount"></div>
+</body>
+</html>
+
+  
+</body>

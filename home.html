@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="">
+    <nav>
+      <a href="#" class="logo">P2P Tutor</a>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="studentneed.html">Students Need</a></li>
+        <li class="dropdown">
+          <a href="#">Tutors &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="peer_login.php">Peer</a></li>
+            <li><a href="student_login.php">Student</a></li>
+
+          </ul>
+        </li>
+        <li><a href="Tutoringreq.html">Request</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#" class="search-logo" id="searchInput"></a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
+
+<!-- ... existing code ... -->
+
+
+<style>
+  /* ... existing CSS code ... */
+
+  .search-bar {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 300px;
+    /* Increase the width as desired */
+    background-color: #fff;
+    padding: 10px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    /* Increase the padding as desired */
+    margin-bottom: 5px;
+  }
+
+  /* ... existing CSS code ... */
+</style>
+</header>
+<div class="search-bar" id="searchBar">
+  <input type="text" placeholder="Search..." id="searchInput">
+  <button type="submit" onclick="search()">Search</button>
+</div>
+
+<!-- ... existing code ... -->
+<script>
+  function search() {
+    var searchQuery = document.getElementById('searchInput').value;
+    // Perform the search operation with the searchQuery value
+    console.log('Search query:', searchQuery);
+    // Replace the console.log statement with your actual search functionality
+  }
+</script>
+<main>
+  <style>
+    .container {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+    }
+
+    .top-right {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+    }
+
+    .centered {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+  <div class="container">
+    <img src="img\bg.jpeg" alt="Snow" style="width:100%; height:500px;">
+
+  </div>
+  <section class="hero">
+
+    <h1>Welcome to Peer-to-Peer Tutoring</h1>
+    <p>Find the perfect tutor for your learning needs</p>
+    <a href="courses.html" class="cta-btn">Get Started</a>
+  </section>
+
+  <section class="features" style="background-color: rgb(231, 183, 191);">
+
+    <div class="feature">
+      <h2>Personalized Tutoring</h2>
+      <p>Connect with qualified tutors who tailor their teaching to your unique requirements.</p>
+    </div>
+
+    <div class="feature">
+      <h2>Flexible Scheduling</h2>
+      <p>Book tutoring sessions at your convenience and fit them into your busy schedule.</p>
+    </div>
+
+    <div class="feature">
+      <h2>Wide Range of Subjects</h2>
+      <p>Choose from various subjects and find tutors for math, science, languages, and more.</p>
+    </div>
+  </section>
+
+  <style>
+    .feature {
+      background-color: #fff;
+      padding: 20px;
+      margin-left: 25px;
+      border-radius: 5px black;
+      transition: background-color 0.3s ease;
+    }
+
+    .feature:hover {
+      background-color: #ccc;
+    }
+  </style>
+
+</main>
+
+<footer>
+  <p>&copy; 2023 Peer-to-Peer Tutoring. All rights reserved.</p>
+</footer>
+</body>
+
+</html>

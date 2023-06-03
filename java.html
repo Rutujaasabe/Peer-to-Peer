@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add styles for dropdown menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#" class="logo">P2P Tutor</a>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="studentneed.html">Students Need</a></li>
+        <!-- <li class="dropdown">
+          <a href="#">Tutors &#9662;</a>
+          <ul class="dropdown-menu">
+            <li><a href="login.html">Peer</a></li>
+            <li><a href="login.html">Teacher</a></li>
+            <li><a href="login.html">Working Professionals</a></li>
+          </ul> -->
+        </li>
+        <li><a href="Tutoringreq.html">Request</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li><a href="#" class="search-logo" id="searchInput"></a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+
+
+<style>
+  .course-details-container {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .demo-video {
+    width: 50%;
+    margin-right: 20px;
+  }
+
+  .video-contents {
+    width: 50%;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-contents ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .video-contents ul li {
+    margin-bottom: 10px;
+  }
+
+  .options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .option {
+    flex-basis: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .option:hover {
+    background-color: lightgray;
+  }
+
+  .option-content {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+  }
+
+  .option-content.active {
+    display: block;
+  }
+
+  .course-details-container {
+    display: flex;
+    align-items: flex-start;
+    background-color: #ec9f9f;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+
+  .demo-video {
+    width: 50%;
+    margin-right: 20px;
+  }
+
+  .video-contents {
+    width: 50%;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-contents ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .video-contents ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    color: #555;
+    cursor: pointer;
+  }
+
+  .video-contents ul li:before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 6px;
+    height: 8px;
+    width: 8px;
+    background-color: #555;
+    border-radius: 50%;
+  }
+
+  .options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .option {
+    flex-basis: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    color: #555;
+    font-weight: bold;
+  }
+
+  .option:hover {
+    background-color: #f5f5f5;
+  }
+
+  .option-content {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7cdcd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .option-content.active {
+    display: block;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+  }
+
+  p {
+    margin-bottom: 0;
+    color: #555;
+  }
+</style>
+</head>
+
+<body>
+  <div class="course-details-container">
+    <div class="demo-video">
+      <!-- Dummy video -->
+      <div class="video-container">
+        <iframe width="100%" height="315" src="img\Mahadev – shivji.py 2023-02-13 14-11-58.mp4" frameborder="0"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="video-contents">
+      <h2>Java Contents</h2>
+      <h5>1. Introduction to java</h5>
+      <h5>2. OOPS</h5>
+      <h5>3. Collection Framework</h5>
+
+    </div>
+  </div>
+
+  <div class="options">
+    <div class="option" onclick="showContent('notes')">Notes</div>
+    <div class="option" onclick="showContent('discuss')">Discuss</div>
+    <div class="option" onclick="showContent('overview')">Overview</div>
+    <div class="option" onclick="showContent('reviews')">Reviews</div>
+  </div>1
+  <style>
+    .pdf-container {
+      width: 100%;
+      height: 600px;
+    }
+  </style>
+  <div class="option-content" id="notes-content">
+    <center>
+      <h1 style="color: rgb(130, 10, 10); font-size:40px;font-family:serif;">Notes</h1>
+    </center>
+    <div class="notes-text">
+      <center>
+        <p style="color:black;">What is Java?</p><br>
+        <p style="color:black;">
+          Java is a programming language and a platform. Java is a high level, robust, object-oriented and secure
+          programming language.
+          <br>
+          Java was developed by Sun Microsystems (which is now the subsidiary of Oracle) in the year 1995. James Gosling
+          is known as the father of Java. Before Java, its name was Oak. Since Oak was already a registered company, so
+          James Gosling and his team changed the name from Oak to Java.
+          <br>
+          Platform: Any hardware or software environment in which a program runs, is known as a platform. Since Java has
+          a runtime environment (JRE) and API, it is called a platform.
+          <br>
+          Java Example
+          Let's have a quick look at Java programming example. A detailed description of Hello Java example is available
+          in next page.
+
+          Simple.java
+          <br>
+          class Simple{ <br>
+          public static void main(String args[]){ <br>
+          System.out.println("Hello Java"); <br>
+          } <br>
+          } <br>
+        </p>
+      </center>
+    </div>
+    <center>
+      <div class="notes-download">
+        <button onclick="downloadPDF()" style="background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;">Download PDF</button>
+      </div>
+    </center>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      var fileURL = 'Java.pdf'; // Replace with the actual path or URL of the PDF file
+      var fileName = 'Java.pdf'; // Name of the file to be downloaded
+
+      var link = document.createElement('a');
+      link.href = fileURL;
+      link.download = fileName;
+
+      // Trigger the click event on the link to start the download
+      link.click();
+    }
+  </script>
+
+  </div>
+  <div class="option-content" id="discuss-content">
+    <center>
+      <h2 style="color: rgb(130, 10, 10); font-size:40px; font-family:serif;">Discuss</h2>
+    </center>
+    <div class="forum-container">
+      <!-- Discussion forum content -->
+      <div class="forum-posts">
+        <!-- Existing posts -->
+        <div class="forum-post">
+          <div class="post-header">
+            <span class="post-author">John Doe</span>
+            <span class="post-date">May 28, 2023</span>
+          </div>
+          <div class="post-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper leo sed enim rutrum, ac
+              efficitur purus lacinia.</p>
+          </div>
+          <div class="post-actions">
+            <span class="likes">10 Likes</span>
+            <button class="like-button" onclick="toggleLike(this)" style="background-color: rgb(208, 104, 104);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 2px;
+            height:30px;
+            width:65px;
+            padding: 4px 10px;
+            cursor: pointer;">Like</button>
+            <button class="answer-button" onclick="toggleAnswer(this)" style="background-color: green;
+            color: rgb(255, 255, 255);
+            border: none;
+            height:30px;
+            width:65px;
+
+            border-radius: 2px;
+            padding: 4px 10px;
+            cursor: pointer;">Answer</button>
+          </div>
+          <br>
+          <div class="post-answer">
+            <textarea placeholder="Write your answer..." rows="4" style="height:50px; width:100%;"></textarea>
+            <br>
+            <center><button class="submit-answer" onclick="postAnswer(this)" style="background-color: blue;
+            color: rgb(255, 255, 255);
+            border: none;
+            height:30px;
+            width:65px;
+
+            border-radius: 2px;
+            padding: 4px 10px;
+            cursor: pointer;">Submit</button>
+
+          </div>
+          </center>
+        </div>
+      </div>
+      <br>
+
+      <!-- Add new post form -->
+      <form class="new-post-form">
+        <div class="post-query">
+          <input type="text" id="query" placeholder="Enter your query..." style="height:50px; width:100%;">
+          <br>
+          <br>
+          <center><button type="submit" onclick="postQuery(event)" style="background-color: blue;
+            color: rgb(255, 255, 255);
+            border: none;
+            height:30px;
+  
+            border-radius: 2px;
+            padding: 2x 6px;
+            cursor: pointer;">Post Query</button></center>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function postQuery(event) {
+      event.preventDefault();
+
+      const query = document.getElementById('query').value;
+
+      // Create a new post element
+      const post = document.createElement('div');
+      post.classList.add('forum-post');
+
+      const postHeader = document.createElement('div');
+      postHeader.classList.add('post-header');
+      const author = document.createElement('span');
+      author.classList.add('post-author');
+      author.textContent = 'John Doe'; // Replace with the actual author's name
+      const date = document.createElement('span');
+      date.classList.add('post-date');
+      const currentDate = new Date().toLocaleDateString();
+      date.textContent = currentDate;
+
+      postHeader.appendChild(author);
+      postHeader.appendChild(date);
+
+      const postContent = document.createElement('div');
+      postContent.classList.add('post-content');
+      const queryText = document.createElement('p');
+      queryText.textContent = query;
+
+      postContent.appendChild(queryText);
+
+      const postActions = document.createElement('div');
+      postActions.classList.add('post-actions');
+      const likes = document.createElement('span');
+      likes.classList.add('likes');
+      likes.textContent = '0 Likes';
+      const likeButton = document.createElement('button');
+      likeButton.classList.add('like-button');
+      likeButton.textContent = 'Like';
+      likeButton.onclick = function () {
+        toggleLike(this);
+      };
+      const answerButton = document.createElement('button');
+      answerButton.classList.add('answer-button');
+      answerButton.textContent = 'Answer';
+      answerButton.onclick = function () {
+        toggleAnswer(this);
+      };
+
+      postActions.appendChild(likes);
+      postActions.appendChild(likeButton);
+      postActions.appendChild(answerButton);
+
+      const postAnswer = document.createElement('div');
+      postAnswer.classList.add('post-answer');
+      const answerTextArea = document.createElement('textarea');
+      answerTextArea.placeholder = 'Write your answer...';
+      answerTextArea.rows = 4;
+      const submitAnswerButton = document.createElement('button');
+      submitAnswerButton.classList.add('submit-answer');
+      submitAnswerButton.textContent = 'Submit';
+      submitAnswerButton.onclick = function () {
+        postAnswer(this);
+      };
+
+      postAnswer.appendChild(answerTextArea);
+      postAnswer.appendChild(submitAnswerButton);
+
+      post.appendChild(postHeader);
+      post.appendChild(postContent);
+      post.appendChild(postActions);
+      post.appendChild(postAnswer);
+
+      const forumPosts = document.querySelector('.forum-posts');
+      forumPosts.appendChild(post);
+
+      document.getElementById('query').value = '';
+    }
+
+    function toggleLike(button) {
+      const post = button.parentNode.parentNode;
+      const likes = post.querySelector('.likes');
+
+      if (button.classList.contains('liked')) {
+        button.classList.remove('liked');
+        likes.textContent = parseInt(likes.textContent) - 1 + ' Likes';
+      } else {
+        button.classList.add('liked');
+        likes.textContent = parseInt(likes.textContent) + 1 + ' Likes';
+      }
+    }
+
+    function toggleAnswer(button) {
+      const post = button.parentNode.parentNode;
+      const postAnswer = post.querySelector('.post-answer');
+      postAnswer.classList.toggle('active');
+    }
+
+    function postAnswer(button) {
+      const post = button.parentNode.parentNode;
+      const answerTextArea = post.querySelector('textarea');
+      const answer = answerTextArea.value;
+
+      if (answer) {
+        // Create a new answer element
+        const answerElement = document.createElement('div');
+        answerElement.classList.add('answer');
+        const answerText = document.createElement('p');
+        answerText.textContent = answer;
+
+        answerElement.appendChild(answerText);
+
+        const postContent = post.querySelector('.post-content');
+        postContent.appendChild(answerElement);
+
+        answerTextArea.value = '';
+      }
+    }
+  </script>
+
+
+
+  <div class="option-content" id="overview-content">
+    <h2>Overview</h2>
+    <p>Course overview and details...</p>
+  </div>
+
+  <div class="option-content" id="reviews-content">
+    <h2>Reviews</h2>
+    <div class="reviews">
+      <!-- Existing reviews -->
+    </div>
+    <div class="rating-form">
+      <h3>Rate the Course</h3>
+      <div class="stars" id="rating-stars">
+        <span class="star" data-value="1"></span>
+        <span class="star" data-value="2"></span>
+        <span class="star" data-value="3"></span>
+        <span class="star" data-value="4"></span>
+        <span class="star" data-value="5"></span>
+      </div>
+      <button id="submit-rating">Submit Rating</button>
+    </div>
+  </div>
+  <script>const stars = document.querySelectorAll('.star');
+    const submitButton = document.getElementById('submit-rating');
+
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = parseInt(star.dataset.value);
+        selectedRating = rating;
+        highlightStars(rating);
+      });
+    });
+
+    submitButton.addEventListener('click', () => {
+      if (selectedRating !== 0) {
+        // Perform rating submission logic here
+        console.log(`Submitted rating: ${selectedRating}`);
+        // Reset selectedRating for the next submission
+        selectedRating = 0;
+        // Clear star highlights
+        highlightStars(0);
+      }
+    });
+
+    function highlightStars(rating) {
+      stars.forEach(star => {
+        if (parseInt(star.dataset.value) <= rating) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+    }
+  </script>
+
+  <script>
+    function showContent(option) {
+      var contentId = option + '-content';
+      var content = document.getElementById(contentId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+      } else {
+        content.classList.add('active');
+      }
+    }
+  </script>
+</body>
+
+</html>
